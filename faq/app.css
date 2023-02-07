@@ -1,0 +1,23 @@
+body {
+    background: #4F1559;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.box {
+    background: #B6325D;
+    height: 8rem;
+    width: 8rem;
+    z-index: -1;
+}
+
+.bracket {
+    background: #B6325D;
+    height: 8rem;
+    width: 8rem;
+    z-index: -1;
+    border-radius: 50%;
+}
