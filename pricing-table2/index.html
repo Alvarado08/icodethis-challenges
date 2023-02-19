@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pricing Table</title>
+</head>
+
+<body>
+    <section
+        class="w-full flex items-center justify-center bg-gray-900 min-h-screen transition ease-in-out delay-100 duration-300"
+        id="section-bg">
+        <main class="max-w-md md:max-w-2xl m-4">
+            <section
+                class="flex flex-col items-center space-y-3 justify-center md:flex-row md:items-center md:justify-between">
+                <h1 class="text-3xl text-white font-bold" id="title">Choose your Plan</h1>
+                <div class="flex items-center justify-center space-x-2 text-lg py-1 bg-gray-400 rounded-full w-44">
+                    <span class="text-gray-700 cursor-pointer ml-2" id="toggle-btn1">Monthly</span>
+                    <span class="bg-white py-1 px-5 rounded-full shadow-md shadow-gray-500 cursor-pointer" id="toggle-btn2">Yearly</span>
+                </div>
+            </section>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-x-9 pt-8">
+                <article
+                    class="flex flex-col items-start justify-center space-y-3 py-5 px-8 bg-white rounded shadow-md">
+                    <h2 class="font-bold text-2xl">Starter</h2>
+                    <div>
+                        <span class="font-bold">$8.99 / month</span>
+                        <h4 class="text-gray-700 font-semibold">Billed Yearly</h4>
+                    </div>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Error dolorum perspiciatis eius asperiores ratione maiores?
+                    </p>
+                    <button class="w-full bg-black text-white rounded py-2 px-5 cursor-pointer transition ease-in-out delay-100 duration-300 border-transparent border-2 hover:-translate-y-1 hover:border-solid hover:border-black hover:border-2 hover:bg-white hover:text-gray-800">Get Started</button>
+                </article>
+                <article
+                    class="flex flex-col items-start justify-center space-y-3 py-5 px-8 bg-white rounded shadow-md">
+                    <h2 class="font-bold text-2xl">Professional</h2>
+                    <div>
+                        <span class="font-bold">$21.99 / month</span>
+                        <h4 class="text-gray-700 font-semibold">Billed Yearly</h4>
+                    </div>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Error dolorum perspiciatis eius asperiores ratione maiores?
+                    </p>
+                    <button class="w-full bg-black text-white rounded py-2 px-5 cursor-pointer transition ease-in-out delay-100 duration-300 border-transparent border-2 hover:-translate-y-1 hover:border-solid hover:border-black hover:border-2 hover:bg-white hover:text-gray-800">Get Started</button>
+                </article>
+            </section>
+        </main>
+    </section>
+    <script>
+        const toggle1 = document.getElementById("toggle-btn1");
+        const toggle2 = document.getElementById("toggle-btn2");
+        const title = document.getElementById("title");
+        const bg = document.getElementById("section-bg");
+        toggle1.addEventListener("click", function(){
+            bg.classList.add("bg-slate-300");
+            toggle1.classList.remove("ml-2");
+            toggle1.classList.add('bg-white', 'py-1', 'px-5', 'rounded-full', 'shadow-md', 'shadow-gray-500');
+            toggle2.classList.remove('bg-white', 'py-1', 'px-5', 'rounded-full', 'shadow-md', 'shadow-gray-500');
+            toggle2.classList.add('text-gray-700', 'pr-2');
+            title.classList.add("text-black");
+        });
+        toggle2.addEventListener("click", function(){
+            bg.classList.remove("bg-slate-300");
+            toggle1.classList.add("ml-2");
+            toggle1.classList.remove('bg-white', 'py-1', 'px-5', 'rounded-full', 'shadow-md', 'shadow-gray-500');
+            toggle2.classList.add('bg-white', 'py-1', 'px-5', 'rounded-full', 'shadow-md', 'shadow-gray-500');
+            toggle2.classList.remove('text-gray-700', "pr-2");
+            title.classList.remove("text-black");
+        });
+    </script>
+</body>
+
+</html>
