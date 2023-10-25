@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-[#f0f5fb] flex justify-center items-center min-h-screen p-5">
+    <main x-data="{open:false}" class="bg-white rounded overflow-hidden shadow shadow-[#ec8f8f] w-full max-w-lg">
+        <section class="flex items-center justify-between bg-[#ec8f8f] p-5 text-white">
+            <h2 class="text-xl font-light">Send us a message</h2>
+            <svg @click="open=!open" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus hover:cursor-pointer" width="32" height="32"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 12l14 0"></path>
+            </svg>
+        </section>
+        <section x-show="open" x-transition class="bg-white p-5">
+            <form @submit.prevent>
+                <label class="uppercase opacity-50 text-sm">your name</label><br>
+                <input class="rounded border w-full p-2 mb-2 outline-none focus:ring-2 focus:ring-[#ec8f8f]" type="text">
+                <label class="uppercase opacity-50 text-sm">email address</label><br>
+                <input class="rounded border w-full p-2 mb-2 outline-none focus:ring-2 focus:ring-[#ec8f8f]" type="email">
+                <label class="uppercase opacity-50 text-sm">what can we do for you?</label><br>
+                <textarea class="border p-2 w-full rounded outline-none focus:ring-2 focus:ring-[#ec8f8f]" placeholder="Type your message here" cols="30" rows="10"></textarea>
+                <label class="uppercase opacity-50 text-sm">attachments</label><br>
+                <input class="file:bg-white file:border-dashed file:w-full file:rounded file:border file:border-[#ec8f8f] file:text-black/50 w-full file:p-3 mb-7 file:cursor-pointer" type="file">
+                <button class="text-white rounded p-3 w-full bg-[#ec8f8f]">Send Message</button>
+            </form>
+        </section>
+    </main>
+</body>
+<!-- Change code above this line -->
+
+</html>
