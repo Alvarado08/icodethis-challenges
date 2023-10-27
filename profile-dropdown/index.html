@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-[#3d3c44] flex justify-center items-center min-h-screen p-5">
+    <main x-data="{open:false}" class="w-full max-w-md font-bold text-white bg-[#383841] rounded p-10 shadow shadow-red-500 space-y-3">
+        <section class="flex items-center justify-end">
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <div class="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-full flex items-center"><span class="text-xs absolute left-1">1</span></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell" width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                    </svg>
+                </div>
+                <div @click="open = !open" class="flex items-center gap-1 cursor-pointer">
+                <img class="w-12 h-12 object-cover rounded-full transition-all ease-in-out delay-200 duration-300 hover:scale-110 hover:-translate-y-1" src="https://randomuser.me/api/portraits/men/22.jpg" alt="avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6 9l6 6l6 -6"></path>
+</svg>
+                </div>
+            </div>
+        </section>
+        <section class="flex justify-center">
+            <article x-show="open" x-cloak x-transition class="bg-[#43404a] rounded p-5 w-full">
+                <div class="flex items-center gap-3">
+                    <img class="w-16 h-16 object-cover rounded-full transition-all ease-in-out delay-200 duration-300 hover:scale-105 hover:-translate-y-1" src="https://randomuser.me/api/portraits/men/22.jpg" alt="avatar">
+                    <div>
+                        <h3>Bob Murphy</h3>
+                        <span class="text-sm font-light opacity-40">bob@gmail.com</span><br>
+                        <button class="text-sm px-3 py-2 bg-[#e28f52] rounded mt-1">Account Settings</button>
+                    </div>
+                </div>
+                <div class="w-full h-0.5 bg-[#3e3c48] my-5"></div>
+                <div class="space-y-4">
+                    <article class="flex items-center gap-3">
+                        <div class="rounded-full p-2 bg-purple-500 text-white text-2xl">
+                            SS
+                        </div>
+                    <div>
+                        <h3>Sally Sosa</h3>
+                        <span class="text-sm font-light opacity-40">sally@gmail.com</span><br>
+                    </div>
+                    </article>
+                    <article class="flex items-center gap-3">
+                        <div class="rounded-full p-2 bg-purple-500 text-white text-2xl">
+                            SS
+                        </div>
+                    <div>
+                        <h3>Sally Sosa</h3>
+                        <span class="text-sm font-light opacity-40">sallyadmin@gmail.com</span><br>
+                    </div>
+                    </article>
+                    <article class="flex items-center gap-3">
+                        <div class="rounded-full p-2 bg-purple-500 text-white text-2xl">
+                            SS
+                        </div>
+                    <div>
+                        <h3>Sally Sosa</h3>
+                        <span class="text-sm font-light opacity-40">sallygetta@gmail.com</span><br>
+                    </div>
+                    </article>
+                </div>
+                <div class="w-full h-0.5 bg-[#3e3c48] my-5"></div>
+                <div class="flex items-center justify-between">
+                    <div class="inline-flex items-center rounded-full border border-dashed p-2 border-[#27262b] transition-all delay-150 duration-300 hover:scale-105 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 5l0 14"></path>
+   <path d="M5 12l14 0"></path>
+</svg>
+                    </div>
+                    <button class="border border-[#27262b] py-1 px-6 rounded transition-all delay-150 duration-300 hover:scale-105">Sign Out</button>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+<!-- Change code above this line -->
+
+</html>
