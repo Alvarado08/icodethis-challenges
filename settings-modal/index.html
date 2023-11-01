@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-[#f3f3f2] flex justify-center items-center min-h-screen p-5 relative">
+    <main class="w-full rounded bg-white shadow">
+        <section class="p-5 flex justify-end">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x opacity-70" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+            </svg>
+        </section>
+        <section class="px-20 pb-10">
+            <h2 class="font-bold text-purple-800 text-2xl">Settings</h2>
+            <div class="my-5">
+                <h4 class="text-purple-800 font-bold text-lg">Language</h4>
+                <p class="opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, tenetur.</p>
+            </div>
+            <div class="h-0.5 w-full bg-black/30"></div>
+            <div class="mt-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h5 class="text-purple-800 font-bold text-lg">Autoplay Videos</h5>
+                        <p class="opacity-70">Choose if you want to autoplay in the browser</p>
+                    </div>
+
+                    <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-800"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h5 class="text-purple-800 font-bold text-lg">Show Profile Photos</h5>
+                        <p class="opacity-70">Choose if you want to autoplay in the browser</p>
+                    </div>
+
+                    <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-800"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 transition-all mt-5">
+                <button class="rounded border py-2 px-10 bg-white delay-150 duration-300 hover:bg-pink-500 hover:text-white">Save</button>
+                <button class="rounded border py-2 px-10 bg-white delay-150 duration-300 hover:bg-pink-500 hover:text-white">Cancel</button>
+            </div>
+        </section>
+    </main>
+    <div class="absolute bottom-0 inset-x-0 h-64 z-[-1] svg">
+    </div>
+</body>
+<!-- Change code above this line -->
+
+</html>
