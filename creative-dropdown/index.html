@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-[#f5f4f7] flex flex-col justify-center items-center min-h-screen p-8 space-y-5">
+    <main x-data="{type:'',act:''}" class="bg-white text-[#181028] p-8 shadow rounded w-full max-w-2xl">
+        <form @submit.prevent="">
+            <section class="w-full grid md:grid-cols-2 gap-3">
+                <div>
+                    <label for="object" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black uppercase">Object Type</label>
+                    <select x-model="type" id="object" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="" disabled>Select a Type</option>
+                    <option value="🐆 Animal">🐆 Animal</option>
+                    <option value="🧑🏻‍🦱 Person">🧑🏻‍🦱 Person</option>
+                    <option value="👽 Alien">👽 Alien</option>
+                    <option value="🤖 Robot">🤖 Robot</option>
+                    </select>
+
+                </div>
+                <div>
+                    <label for="object" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black uppercase">Object Activity</label>
+                    <select x-model="act" id="activity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="" disabled>Select an Activity</option>
+                    <option value="💬 Meditate">💬 Meditate</option>
+                    <option value="📖 Read">📖 Read</option>
+                    <option value="🏃🏻 Exercise">🏃🏻 Exercise</option>
+                    <option value="😴 Sleep">😴 Sleep</option>
+                    </select>
+                </div>
+            </section>
+            <h4 class="mt-4 font-semibold uppercase text-sm">Combo Preview</h4>
+            <div>
+                <p class="font-medium">Type: <span x-text="type"></span></p>
+                <p class="font-medium">Activity: <span x-text="act"></span></p>
+            </div>
+            <button @click="createCombo($data.type,$data.act);$data.type = '';$data.act = ''; " class="rounded bg-blue-800 text-white mt-5 py-2 px-5">Create Combo</button>
+        </form>
+    </main>
+    <section class="bg-white text-[#181028] p-8 shadow rounded w-full max-w-2xl">
+        <h3 class="font-semibold text-sm uppercase">Your Saved Combos</h3>
+        <div id="combos" class="grid md:grid-cols-3 gap-3 pt-2"></div>
+    </section>
+    <script>
+        function createCombo(type,activity){
+            const comboContainer = document.getElementById("combos");
+            const card = document.createElement("div");
+            card.className = "rounded shadow p-4";
+            card.innerHTML = `
+                <p><span class="font-bold">Type:</span> ${type}</p>
+                <p><span class="font-bold">Activity:</span> ${activity}</p>
+            `;
+            comboContainer.appendChild(card);
+        }
+    </script>
+</body>
+<!-- Change code above this line -->
+
+</html>
