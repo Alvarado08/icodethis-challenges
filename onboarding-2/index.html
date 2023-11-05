@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-[#d0e2ff] flex justify-center items-center min-h-screen p-8"
+    x-data="{cards:[{img:'https://img.icons8.com/arcade/64/house.png',title:'Find campings near you',info:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ipsa?'},
+    {img:'https://img.icons8.com/cotton/64/smartphone--v1.png',title:'Reserve directly from your phone',info:'Lorem ipsum dolor sit amet consectetur adipisicing elit.'},
+    {img:'https://img.icons8.com/cotton/64/gps-searching.png',title:'Get directions quickly',info:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, ipsa? Sit amet consectetur!'}],count:0}"
+>
+    <main class="w-full max-w-xs rounded-md overflow-hidden shadow bg-white shadow-cyan-500">
+        <section class="flex flex-col text-center items-center justify-center p-10 bg-[#e7f0ff] rounded-b-[100%]">
+            <img width="64" height="64" :src="cards[count].img" alt="house"/>
+            <p class="font-bold text-[#4e5db4] text-lg mt-2 w-32 leading-snug transition duration-300 ease-in-out" x-text="cards[count].title"></p>
+        </section>
+        <section class="bg-white p-10 space-y-5">
+            <p class="text-center font-semibold text-sm transition duration-300 ease-in-out"  x-text="cards[count].info"></p>
+            <div x-ref="sliders" class="flex items-center justify-center gap-2">
+                <template x-for="card in cards" :key="card">
+                    <article class="rounded-full w-3 h-3 bg-gray-200" :class="$refs.sliders.children[0].children[$store.count] === $store.count ? 'bg-[#455dcc]' : 'bg-gray-200'"></article>
+                </template>
+            </div>
+            <div class="flex items-center justify-center gap-3 font-semibold">
+                <button class="rounded-full px-7 py-3 bg-gray-200 duration-300 hover:-translate-y-1 group"><span class="opacity-60 group-hover:opacity-100 duration-300">Skip</span></button>
+                <button @click="count < cards.length-1 ? count++ : count = 0" class="rounded-full px-7 py-3 bg-[#455dcc] text-white hover:-translate-y-1 duration-300">Next</button>
+            </div>
+        </section>
+    </main>
+</body>
+<!-- Change code above this line -->
+
+</html>
