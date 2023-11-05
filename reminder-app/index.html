@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-gradient-to-r from-[#fe6d62] to-[#ff9e81] flex justify-center items-center min-h-screen p-8"
+x-data="{menu:false,todos:[{title:'to dos',items:[]}],item:''}"
+>
+    <main class="w-full h-full rounded bg-white overflow-hidden overflow-x-hidden transition-all flex items-start">
+        <aside x-cloak class="bg-[#37474e] h-full w-full max-w-[17rem] duration-500 scale-0 opacity-0" :class="menu ? 'translate-x-0 scale-100 opacity-100' : '-translate-x-96 hidden'">
+            <div class="p-5">
+                <input class="w-full rounded-full p-3 outline-none focus:ring-2 focus:ring-slate-500 duration-300 bg-[#43555d] focus:text-white" type="text" placeholder="Search">
+            </div>
+            <div class="uppercase text-white text-sm font-bold space-y-2 pb-5">
+                <div class="py-2 outline-none hover:text-[#43555d] hover:bg-white px-5 duration-300 cursor-pointer flex items-center justify-between group">
+                    <h5>reminders</h5>
+                    <span class="bg-[#2c3e49] rounded-full px-3 py-1 group-hover:text-white">1</span>
+                </div>
+                <div class="py-2 outline-none text-[#43555d] bg-white px-5 duration-300 cursor-pointer flex items-center justify-between group">
+                    <h5>to do list</h5>
+                    <span x-text="todos[0].items.length" class="bg-[#2c3e49] rounded-full px-3 py-1 text-white"></span>
+                </div>
+                <div class="py-2 outline-none hover:text-[#43555d] hover:bg-white px-5 duration-300 cursor-pointer flex items-center justify-between group">
+                    <h5>shopping list</h5>
+                    <span class="bg-[#2c3e49] rounded-full px-3 py-1 group-hover:text-white">0</span>
+                </div>
+                <div class="py-2 outline-none hover:text-[#43555d] hover:bg-white px-5 duration-300 cursor-pointer flex items-center justify-between group">
+                    <h5>other</h5>
+                    <span class="bg-[#2c3e49] rounded-full px-3 py-1 group-hover:text-white">4</span>
+                </div>
+            </div>
+        </aside>
+        <section class="w-full p-5">
+            <svg @click="menu = !menu" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M4 6l16 0"></path>
+            <path d="M4 12l16 0"></path>
+            <path d="M4 18l16 0"></path>
+            </svg>
+            <div class="my-3 inline-flex items-center gap-2">
+                <h2 x-text="todos[0].title" class="uppercase font-semibold text-lg "></h2>
+                <span x-transition x-show="!menu" x-text="todos[0].items.length" class="font-semibold bg-slate-500 rounded-full text-white px-2 py-1 text-xs"></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <input x-model="item" class="border rounded p-3 w-full outline-none focus:ring-2 focus:ring-slate-900 duration-300" type="text" placeholder="What else do you need?">
+                <button @click="item.trim().length && todos[0].items.push(item);item = '';" class="bg-slate-500 rounded w-full py-3 px-6 max-w-[6rem] sm:max-w-[8rem] text-white font-semibold duration-300 hover:bg-slate-600 flex justify-center">
+                    <span class="hidden sm:block">Add item</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus block sm:hidden" width="24" height="24"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 5l0 14"></path>
+                        <path d="M5 12l14 0"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mt-3">
+                <template x-if="!todos[0].items.length">
+                    <span class="uppercase font-semibold text-sm">Your list is empty</span>
+                </template>
+                <template x-for="(todo,index) in todos[0].items">
+                    <div class="flex items-center justify-between space-y-2">
+                        <span @click="$el.classList.toggle('line-through')" class="uppercase font-semibold cursor-pointer" x-text="todo"></span>
+                        <template x-if="todos[0].items.length">
+                        <svg @click="todos[0].items = todos[0].items.filter((item,clickedIndex)=>{return index !== clickedIndex})" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash cursor-pointer" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="red" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 7l16 0"></path>
+                            <path d="M10 11l0 6"></path>
+                            <path d="M14 11l0 6"></path>
+                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                        </svg>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </section>
+    </main>
+</body>
+<!-- Change code above this line -->
+
+</html>
