@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.lordicon.com/lordicon-1.2.0.js" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- Change code below this line -->
+<body x-data x-cloak :class="$store.actions.darkMode ? 'bg-black' : 'bg-sky-200'" class="flex justify-center items-center min-h-screen p-5 duration-300 relative">
+    <div :class="$store.actions.login ? 'absolute' : 'hidden'" class="top-4 left-4 duration-300">
+        <svg @click="$store.actions.show()" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2 cursor-pointer" :class="$store.actions.darkMode ? 'text-white' : 'text-black'" width="40" height="40"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+            <path d="M10 12h4v4h-4z"></path>
+        </svg>
+    </div>
+    <main id="card" x-cloak :class="$store.actions.login ? 'hidden scale-0' : 'block scale-100'" class="w-full max-w-sm rounded p-5 bg-white duration-300">
+        <section class="flex justify-center">
+            <lord-icon class="cursor-pointer" src="https://cdn.lordicon.com/pbbsmkso.json" trigger="loop" style="width:100px;height:100px" colors="secondary:#6b82d5">
+            </lord-icon>
+        </section>
+        <section class="my-5 space-y-3">
+            <div>
+                <label class="uppercase text-sm font-bold">username</label>
+                <input class="w-full border rounded p-2 outline-none focus:ring-2 focus:ring-[#6b82d5] duration-300 mt-1" type="text">
+            </div>
+            <div>
+                <label class="uppercase text-sm font-bold">password</label>
+                <input class="w-full border rounded p-2 outline-none focus:ring-2 focus:ring-[#6b82d5] duration-300 mt-1" type="password">
+            </div>
+        </section>
+        <button @click="$store.actions.show()" class="w-full bg-[#6b82d5] p-3 rounded text-white text-lg uppercase font-bold hover:bg-[#5f74be] duration-300">login</button>
+    </main>
+
+    <section x-cloak :class="$store.actions.login ? 'flex' : 'hidden'" class="w-full h-[30rem] max-w-sm rounded p-8 bg-white shadow shadow-blue-500 items-end justify-center">
+        <button @click="$store.actions.toggle()" x-text="$store.actions.darkMode ? 'on' : 'off'" class="bg-[#1c2c56] rounded-full w-20 h-20 text-[#6c7dc3] text-xl font-bold ring-8 ring-[#2f3d6c] duration-300 hover:bg-[#23376b] active:-translate-y-2 uppercase"></button>
+    </section>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('actions', {
+                login: false,
+                darkMode: false,
+
+                show(){
+                    this.login = !this.login;
+                },
+
+                toggle(){
+                    this.darkMode = !this.darkMode;
+                },
+            })
+        })
+    </script>
+</body>
+<!-- Change code above this line -->
+
+</html>
