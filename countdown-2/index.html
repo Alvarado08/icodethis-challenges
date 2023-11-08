@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Remove the line below if you don't want to use TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg {
+            background-image: url('https://images.unsplash.com/photo-1580671576132-bb0be268f939?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<!-- Change code below this line -->
+<body x-data="{date: new Date().toDateString()}" class="bg flex justify-center items-center min-h-screen p-5">
+    <main class="w-full">
+        <div class="mb-5 space-y-2 text-white">
+            <h1 class="text-5xl font-bold">Trip to Greenland</h1>
+            <p class="text-lg font-bold uppercase" x-text="date"></p>
+        </div>
+        <section class="w-full py-10 px-5 bg-white rounded flex items-center justify-around">
+            <div class="flex flex-col justify-center items-center">
+                <h3 id="days" class="text-4xl"></h3>
+                <h5 class="text-lg font-semibold uppercase">Days</h5>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+                <h3 id="hrs" class="text-4xl"></h3>
+                <h5 class="text-lg font-semibold uppercase">Hours</h5>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+                <h3 id="mins" class="text-4xl"></h3>
+                <h5 class="text-lg font-semibold uppercase">Minutes</h5>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+                <h3 id="secs" class="text-4xl"></h3>
+                <h5 class="text-lg font-semibold uppercase">Seconds</h5>
+            </div>
+        </section>
+    </main>
+    <script>
+        function countDown(){
+            const endDate = new Date('December 1, 2023 00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = endDate - now;
+        
+            const sec = 1000;
+            const min = sec * 60;
+            const hr = min * 60;
+            const day = hr * 24;
+        
+            // Calculate units
+            const textDays = Math.floor(diff / day);
+            const textHours = Math.floor((diff % day) / hr);
+            const textMinutes = Math.floor((diff % hr) / min);
+            const textSeconds = Math.floor((diff % min) / sec);
+            document.querySelector('#days').textContent = textDays;
+            document.querySelector('#hrs').textContent = textHours;
+            document.querySelector('#mins').textContent = textMinutes;
+            document.querySelector('#secs').textContent = textSeconds;
+        };
+        setInterval(countDown,1000);
+    </script>
+</body>
+<!-- Change code above this line -->
+
+</html>
